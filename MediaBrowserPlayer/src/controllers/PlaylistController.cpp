@@ -100,7 +100,12 @@ void PlaylistController::showPlaylists() {
                 try {
                     int index = std::stoi(indexStr) - 1; // Convert to 0-based index
                     if (index >= 0 && index < static_cast<int>(playlists.size())) {
-                        playlistView->displayMessage("This would play the playlist (through PlayerController)");
+                        Playlist playlist = playlistManager->getPlaylist(index);
+                        playerController->getAudioState().setCurrentPlaylist(playlist);
+                        playerController->getAudioState().setCurrentTrackIndex(0);
+                        playerController->getAudioState().setPlayerState(Constants::PlayerState::PLAYING);
+                        playerController->playPlaylist();
+                        playlistView->displayMessage("Playing playlist: " + playlist.getName());
                         playlistView->waitForInput();
                     } else {
                         playlistView->displayError("Invalid playlist number");
