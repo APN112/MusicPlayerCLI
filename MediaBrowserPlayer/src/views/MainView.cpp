@@ -74,7 +74,6 @@ void MainView::displayMainMenu() {
     displayMenuItem(3, "Now Playing");
     displayMenuItem(4, "Play");
     displayMenuItem(5, "Change Directory");
-    displayMenuItem(6, "Mount USB Device");
     displayMenuItem(0, "Exit");
     std::cout << "\n";
 }
