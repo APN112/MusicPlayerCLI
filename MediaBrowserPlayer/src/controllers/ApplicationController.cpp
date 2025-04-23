@@ -121,12 +121,6 @@ int ApplicationController::showMainMenu() {
     view->clearScreen();
     view->displayHeader();
     
-    // Show hardware device status
-    // if (hardwareController->isConnected()) { // Changed method name to match header
-    //     std::string deviceInfo = hardwareController->getStatusInfo(); // Changed method name to match header
-    //     view->displayDeviceInfo(deviceInfo);
-    // }
-    
     // Show current directory
     view->displayCurrentDirectory(currentDirectory);
     view->displayMainMenu();
